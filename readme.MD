@@ -5,3 +5,6 @@
 * project(required)- users should specify project name
 * environment(required)-users should specify environment 
 * CIDR_block(oprional)- users can specify thier CIDR block. default is 10.0.0.0/16
+
+# outputs
+* vpc_id - exports vpc id created
