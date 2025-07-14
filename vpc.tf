@@ -94,20 +94,20 @@ resource "aws_eip" "nat" {
   )
 }
 
-resource "aws_nat_gateway" "main" {
-  allocation_id = aws_eip.nat.id
-  subnet_id     = aws_subnet.public[0].id
+# resource "aws_nat_gateway" "main" {
+#   allocation_id = aws_eip.nat.id
+#   subnet_id     = aws_subnet.public[0].id
 
-  tags = merge(
-    var.nat_gateway_tags,
-    local.common_tags,
-    {
-        Name="${var.project}-${var.environment}"
-    }
-  )
+#   tags = merge(
+#     var.nat_gateway_tags,
+#     local.common_tags,
+#     {
+#         Name="${var.project}-${var.environment}"
+#     }
+#   )
 
-  depends_on = [aws_internet_gateway.main]
-}
+#   depends_on = [aws_internet_gateway.main]
+# }
 
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
